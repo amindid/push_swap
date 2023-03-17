@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stacks.c                                      :+:      :+:    :+:   */
+/*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aouchaad <aouchaad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 19:04:34 by aouchaad          #+#    #+#             */
-/*   Updated: 2023/03/15 19:05:18 by aouchaad         ###   ########.fr       */
+/*   Created: 2023/02/19 16:49:09 by aouchaad          #+#    #+#             */
+/*   Updated: 2023/03/16 15:55:12 by aouchaad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stacks(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b, int print)
+{
+	push_stack (stack_b, stack_a);
+	if (print == 1)
+		write (1, "pa\n", 3);
+}
+
+void	pb(t_list **stack_a, t_list **stack_b, int print)
+{
+	push_stack (stack_a, stack_b);
+	if (print == 1)
+		write (1, "pb\n", 3);
+}
+
+void	push_stack(t_list **stack_1, t_list **stack_2)
 {
 	t_list	*temp;
 
-	while (*stack_a)
-	{
-		temp = (*stack_a)->next;
-		free(*stack_a);
-		*stack_a = temp;
-	}
-	while (*stack_b)
-	{
-		temp = (*stack_b)->next;
-		free(*stack_b);
-		*stack_b = temp;
-	}
+	if (!(*stack_1))
+		return ;
+	temp = *stack_2;
+	*stack_2 = *stack_1;
+	*stack_1 = (*stack_1)->next;
+	(*stack_2)->next = temp;
 }
