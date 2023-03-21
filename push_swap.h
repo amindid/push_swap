@@ -6,7 +6,7 @@
 /*   By: aouchaad <aouchaad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:52:06 by aouchaad          #+#    #+#             */
-/*   Updated: 2023/03/16 17:27:52 by aouchaad         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:01:45 by aouchaad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <fcntl.h>
-# include <string.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -128,4 +126,6 @@ t_list	*ft_lstnew(t_list *stack_a, int content);
 char	*get_next_line(int fd);
 char	*ft_strchr(char *string, int chrstr);
 int		ft_strcmp(char **s1, char *s2);
+void	ruls(char **rule, t_list **stack_a, t_list **stack_b);
+void	free_and_exit(char **rule, t_list **stack_a, t_list **stack_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: aouchaad <aouchaad@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:38:01 by aouchaad          #+#    #+#             */
-/*   Updated: 2023/03/16 15:59:59 by aouchaad         ###   ########.fr       */
+/*   Updated: 2023/03/19 16:44:58 by aouchaad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	five_and_four(t_list **stack_a, t_list **stack_b, int ac)
 {
 	int	i;
 
-	while (ac > 4)
+	while (ac > 3)
 	{
 		i = min_pos(stack_a);
 		if (i <= (ac / 2))
@@ -66,7 +66,7 @@ void	five_and_four(t_list **stack_a, t_list **stack_b, int ac)
 		}
 		else
 		{
-			while (((ac - 1) - i++) > 0)
+			while ((ac - i++) > 0)
 				rra (stack_a, 1);
 		}
 		pb (stack_a, stack_b, 1);
@@ -79,11 +79,11 @@ void	five_and_four(t_list **stack_a, t_list **stack_b, int ac)
 
 void	five_and_less_sort(t_list **stack_a, t_list **stack_b, int ac)
 {
-	if (ac == 3)
+	if (ac == 2)
 		sa (stack_a, 1);
-	else if (ac == 4)
+	else if (ac == 3)
 		three_arg_sort(stack_a);
-	else if (ac >= 5)
+	else if (ac >= 4)
 		five_and_four(stack_a, stack_b, ac);
 	free_stacks(stack_a, stack_b);
 	exit (0);
